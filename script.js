@@ -1,5 +1,4 @@
 
-    // const nombre = document.querySelector("#nombre");
     const nombreVisitante = document.querySelector("#nombre");
     const apellidos = document.querySelector("#apellidos");
     const movil = document.querySelector("#movil");
@@ -11,16 +10,7 @@
     const elementosFormulario = document.querySelectorAll('INPUT');
 
     
-    // console.log(nombre);
-    // console.log(apellidos);
-    // console.log(movil);
-    // console.log(correo);
-    // console.log(fecha_llegada);
-    // console.log(fecha_salida);
-    // console.log(visitantes);
-
-   //console.log (elementosFormulario);
-
+    
     let datos = {
         nombre: " ",
         apellidos: " ",
@@ -30,10 +20,7 @@
         fecha_salida: " ",
         visitantes: 0
 
-    }
-
-
-    
+    }   
 
      nombreVisitante.addEventListener('input', leerTexto);
      apellidos.addEventListener('input', leerTexto);
@@ -42,9 +29,7 @@
      fecha_llegada.addEventListener("input", leerTexto);
      fecha_salida.addEventListener("input", leerTexto);
      visitantes.addEventListener("input", leerTexto);
-     
-
-    
+        
 
     formulario.addEventListener('submit', function(e)
     {
@@ -84,15 +69,7 @@
         let newCellBoton=newRow.insertCell(7);
 
 
-
-
-        // let nombre=document.createElement("p");
-        // let tuNombre=datos.nombre;
-        // let tuNombre = document.createTextNode(datos.nombre.toString);
-        // nombre.textContent = tuNombre;
-        // nombre.appendChild(nombrePrueba);
-        // newCellName.appendChild(nombre);
-        
+                
         let nombre = datos.nombre;
         let nombreNodo =document.createTextNode(nombre);
         newCellName.appendChild(nombreNodo);
@@ -172,6 +149,9 @@
 
             filaSeleccionada.remove();
 
+
+           
+
             //no hace falta partir de document.
             //podés partir de cualquier elemento HTML
             //getElementById()
@@ -185,9 +165,18 @@
             //BORRAR ESE REGISTRO
 
             //RESUMEN FUNCIONAL: EL USUARIO PUEDE CORREGIR REGISTROS SIN TENER QUE RE INGRESAR TODOS LOS CAMPOS
-        }    
 
-        
+        } 
+        datos.nombre=nombreCelda;
+        datos.apellidos=apellidosCelda;
+        datos.movil = movilCelda;
+        datos.correo= correoCelda;
+        datos.fecha_llegada= fecha_llegadaCelda;
+        datos.fecha_salida= fecha_salidaCelda;
+        datos.visitantes= visitantesCelda;
+
+    
+     
         
         
 
