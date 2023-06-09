@@ -31,8 +31,7 @@
      visitantes.addEventListener("input", leerTexto);
         
 
-    formulario.addEventListener('submit', function(e)
-    {
+    formulario.addEventListener('submit', function(e){
 
         let formulario = document.querySelector("#formulario");
         e.preventDefault();
@@ -42,7 +41,7 @@
             mostrarError("Todos los campos son obligatorios");
             return;
         }
-        sendData();
+        sendData();      
 
         mostrarEnviado ("Enviado Correctamente");
         formulario.reset();
@@ -103,32 +102,29 @@
         newCellBoton.appendChild(botonBorrar);
         botonBorrar.addEventListener("click",erase);
 
-        let editar=document.createElement("botonEditar");
-        editar.textContent="editar"
+        let editar=document.createElement("button");
+        editar.textContent="ed"
         newCellBoton.appendChild(editar);
         editar.addEventListener("click",edit)
 
-        function erase(){
+        function erase()
+        {
             botonBorrar.closest("tr").remove();
-            }
+        }
 
-        function edit(){
-
-            
-            //PLAN DE TRABAJO:
-
+        function edit()        
+        {            
             //OBTENER LA FILA A EDITAR
+
             let filaSeleccionada = botonBorrar.closest("tr");
 
-            //OBTENER LOS DATOS A EDITAR EN UNA VARIABL
+            //OBTENER LOS DATOS A EDITAR EN UNA VARIABLE
+
             let celdasLista = filaSeleccionada.querySelectorAll("td");
 
-            let nombreCelda = celdasLista[0].innerText;
-            //y así para cada campo
+            let nombreCelda = celdasLista[0].innerText;            
+            nombreVisitante.value = nombreCelda;  
 
-            nombreVisitante.value = nombreCelda;
-            //y así para cada campo
-            
             let apellidosCelda=celdasLista[1].innerText;
             apellidos.value = apellidosCelda;
 
@@ -147,23 +143,9 @@
             let visitantesCelda = celdasLista[6].innerText;
             visitantes.value = visitantesCelda;
 
-            filaSeleccionada.remove();
-
+            filaSeleccionada.remove();         
 
            
-
-            //no hace falta partir de document.
-            //podés partir de cualquier elemento HTML
-            //getElementById()
-            //getElementByClassName()
-            //getElementByTagName()
-            //querySelector()
-            //querySelectorAll()
-
-            //PASAR ESOS DATOS AL FORMULARIO, AL VALOR DE LOS INPUTS
-
-            //BORRAR ESE REGISTRO
-
             //RESUMEN FUNCIONAL: EL USUARIO PUEDE CORREGIR REGISTROS SIN TENER QUE RE INGRESAR TODOS LOS CAMPOS
 
         } 
@@ -174,33 +156,10 @@
         datos.fecha_llegada= fecha_llegadaCelda;
         datos.fecha_salida= fecha_salidaCelda;
         datos.visitantes= visitantesCelda;
-
-    
-     
-        
-        
-
-
-
-
-
-
-
-        // Supongamos que tienes una constante llamada 'datos' que contiene los datos del formulario
-// const nombre = datos.nombre;
-
-// Obtén una referencia al elemento de la tabla donde deseas agregar el contenido del nombre
-// const newCellName = document.getElementById('id-de-tu-elemento-de-tabla');
-
-// Crea un nodo de texto con el contenido del nombre
-// const nodoDeTexto = document.createTextNode(nombre);
-
-// Agrega el nodo de texto al elemento de la tabla
-// newCellName.appendChild(nodoDeTexto);
-
         
 
     }
+
    function leerTexto (e)
    {
 
